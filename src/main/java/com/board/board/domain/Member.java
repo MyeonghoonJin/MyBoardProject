@@ -1,5 +1,7 @@
 package com.board.board.domain;
 
+
+import com.board.board.domain.Enum.Status;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Table(name="Member")
 @Getter
 @Setter
@@ -21,7 +24,7 @@ import lombok.Setter;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Member_num;
+    private Long num;
 
     @Size(min = 6,max = 16)
     @NotEmpty(message = "필수항목입니다.")
@@ -35,6 +38,11 @@ public class Member {
     @NotEmpty(message = "필수항목입니다.")
     private String name;
 
+    @Enumerated(EnumType.STRING)
+/*    @Convert(converter = StatusAttributeConverter.class)*/
+    private Status status;
+
+
     public Member(String id, String pwd, String name) {
         this.id = id;
         this.pwd = pwd;
@@ -45,40 +53,29 @@ public class Member {
 
     }
 }
-//
-//
-//    public static class Builder{
-//        private Long num;
-//        private String id;
-//        private String pwd;
-//        private String name;
-//
-//        public Builder(){
-//        }
-//        public Member_domain Build(){
-//            Member_domain member_domain = new Member_domain();
-//            member_domain.name = name;
-//            member_domain.id = id;
-//            member_domain.pwd = pwd;
-//            return member_domain;
-//        }
-//
-//
-//
-//    }
-//    public Member_domain(Long num,String id){
-//        this.num = num;
-//        this.id = id;
-//    }
-//    public Member_domain(Long num,String id,String pwd) {
-//        this.num = num;
-//        this.id = id;
-//        this.pwd = pwd;
-//    }
-//    public Member_domain(Long num,String id,String pwd,String name) {
-//        this.num = num;
-//        this.id = id;
-//        this.pwd = pwd;
-//        this.name = name;
-//    }
 
+/*
+//Converter
+@Converter
+public class StatusAttributeConverter implements AttributeConverter<String,Integer> {
+    @Override
+    public Integer convertToDatabase(String s){
+        if("ADMIN".equals(s)){
+            return 1;
+        }
+        else if("USER".equals(s)){
+            return 2;
+        }
+        return 0;
+    }
+    @Override
+    public String convertToEntityAttribute(Integer c){
+        if(1 == c){
+            return  "ADMIN";
+        }
+        else if(2 == c){
+            return "USER";
+        }
+        return "X";
+    }
+}*/

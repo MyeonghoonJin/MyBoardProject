@@ -22,7 +22,7 @@ public class MemberDTO {
     public static MemberDTO toMemberDTO(Member member){
         MemberDTO memberDTO = new MemberDTO();
 
-        memberDTO.setNum(member.getMember_num());
+        memberDTO.setNum(member.getNum());
         memberDTO.setId(member.getId());
         memberDTO.setPwd(member.getPwd());
         memberDTO.setName(member.getName());

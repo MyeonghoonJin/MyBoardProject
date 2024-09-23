@@ -33,6 +33,9 @@
                 <label for="id" class="form-label">아이디 <span class="text-muted">(6~16자)</span></label>
                 <input type="text" class="form-control" id="id" placeholder="아이디를 입력하세요" required="" name="id"
                 >
+                <div th:replace="~{}">
+
+                </div>
                 <div class="invalid-feedback">
                     Please enter your shipping address.
                 </div>
@@ -40,8 +43,8 @@
 
             <div class="col-12">
                 <label for="pwd" class="form-label">비밀번호 <span class="text-muted">(6~16자)</span></label>
-                <input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력하세요" name="pwd"
-                >
+                <input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력하세요" name="pwd">
+
             </div>
 
 

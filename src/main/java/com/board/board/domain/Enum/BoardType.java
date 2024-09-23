@@ -12,12 +12,4 @@ public enum BoardType {
     DEBATE,
     INFORMATION
 
-//    Board_type(String type) {
-//        this.type = type;
-//    }
-//
-//    public String getType(){
-//        return type;
-//    }
-
 }

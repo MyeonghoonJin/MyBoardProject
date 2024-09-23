@@ -46,9 +46,13 @@
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
             </form>
 
-            <div class="text-end">
+            <div class="text-end" th:if="${id == null}">
                 <button type="button" onclick="location.href='SignIn'" class="btn btn-outline-light me-2">Sign-in</button>
                 <button type="button" onclick="location.href='SignUp'" class="btn btn-warning">Sign-up</button>
+            </div>
+            <div class="text-end2" th:unless="${id == null}">
+                <button type="button" onclick="location.href='MyPage'" class="btn btn-warning">My page</button>
+                <button type="button" onclick="location.href='LogOut'" class="btn btn-warning">Logout</button>
             </div>
         </div>
     </div>

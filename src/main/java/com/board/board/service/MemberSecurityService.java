@@ -1,10 +1,12 @@
-package com.board.board.service;
-
+//package com.board.board.service;
+//
+//import com.board.board.domain.Enum.MemberStatus;
 //import com.board.board.domain.Member;
 //import com.board.board.repository.MemberRepository;
 //import jakarta.validation.constraints.Null;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
+//
 //import org.springframework.stereotype.Service;
 //import org.springframework.security.core.GrantedAuthority;
 //import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,21 +15,24 @@ package com.board.board.service;
 //import org.springframework.security.core.userdetails.UserDetailsService;
 //import org.springframework.security.core.userdetails.UsernameNotFoundException;
 //
+//import java.util.ArrayList;
+//import java.util.List;
 //import java.util.Optional;
-
+//
 //@RequiredArgsConstructor
 //@Service
 //public class MemberSecurityService implements UserDetailsService {
+//
 //    private final MemberRepository memberRepository;
 //
 //    @Override
-//    public UserDetails loadMemberByMemberId(String id,String pwd) throws UsernameNotFoundException{
-//        Member member = this.memberRepository.findById(id);                             //id를 통해 Member를 찾아봄
-//        if(member == null){
-//            throw new UsernameNotFoundException("사용자를 찾을수 없습니다.");               //해당 id가 없으면 예외처리
+//    public UserDetails loadMemberByMemberId(String id) {
+//        Optional<Member> member = this.memberRepository.findById(id);
+//        //일치하는 id가 없으면 종료
+//        if(member.isEmpty()) {
+//            throw new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
 //        }
-//        if(member.getPwd() == pwd){                                                     //해당 id의 pwd가 입력값과 일치하면
 //
-//        }
+//
 //    }
 //}
